@@ -1,0 +1,140 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  color: #FFF;
+  background-color: #20201d;
+  overflow: hidden;
+  padding-top: 63px;
+  height: 100%;
+}
+
+td, tr{
+  border: 0px !important;
+}
+
+p {
+  font-size: 12px;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+button:focus {
+  outline: 0 !important;
+}
+
+.navbar-fixed-top {
+  border-width: 0;
+  top: 0px;
+  height: 63px;
+}
+
+.expand-vertical {
+  height: 90vh;
+}
+
+.navbar-brand {
+  font-variant: small-caps;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.sidebar {
+  padding-top: 10px;
+  background-color: #282825;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-content {
+  background-color: #20201d;
+  height: 100vh;
+  padding-top: 15px;
+}
+
+.margin-right {
+  margin-right: 10px;
+}
+
+.margin-left {
+  margin-left: 10px;
+}
+
+.margin-top {
+  margin-top: 10px;
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
+.panel {
+  background-color: #282825;
+  max-height: 100vh;
+  overflow: auto;
+}
+
+/* DiceTool Modifiers */
+.active-result {
+  background-color: #535345;
+}
+
+.active-result-d20 {
+  background-color: #7CB342;
+}
+
+.active-result-d1 {
+  background-color: #E53935;
+}
+
+.active-result-bj-total {
+  background-color: #1E88E5;
+}
+
+.active-result-bj-push {
+  background-color: #FF5722;
+}
+
+.active-result-bj-dealer {
+  background-color: #616161;
+}
+
+.active-result-bj-opposition {
+  background-color: #424242;
+}
+
+.active-result-bj-total-alt {
+  background-color: #1565C0;
+}
+
+.active-result-duel-enemy {
+  background-color: #616161;
+}
+
+.active-result-duel-enemy-alt {
+  background-color: #424242;
+}
+
+
+@media (min-width: 768px ) {
+  .row {
+      position: relative;
+  }
+
+  .bottom-align-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}

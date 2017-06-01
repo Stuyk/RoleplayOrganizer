@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="navbar navbar-fixed-top navbar-default">
+      <div class="row">
+        <div class="col-sm-10 draggable">
+          <span class="navbar-brand">roleplay organizer <sub>by stuyk</sub></span>
+        </div>
+        <div class="col-sm-2">
+          <button class="btn btn-default pull-right navbar-btn margin-right" id="exitApp" title="Exit">X</button>
+          <button class="btn btn-default pull-right navbar-btn" id="maxApp" title="Maximize">[&nbsp;]</button>
+          <button class="btn btn-default pull-right navbar-btn" id="minApp" title="Minimize">_</button>
+        </div>
+      </div>
+    </div>
+  	<div class="row">
+      <div class="col-sm-2 sidebar">
+        <div class="nav nav-stacked">
+          <button class="btn btn-default col-sm-12 active" id="showPanelHome">Main</button>
+          <button class="btn btn-default col-sm-12 margin-top" id="showPanelDiceTool">Toolkit</button>
+          <button class="btn btn-default col-sm-12 margin-top" id="showPanelNewCharacterSheet">New Character Sheet +</button>
+        </div>
+      </div>
+      <div class="col-sm-10 main-content">
+        <!-- Panel Home -->
+        <div id="panelHome" class="side-tab">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="panel expand-vertical">
+                <div class="panel-heading">
+                  <h4>welcome</h4>
+                </div>
+                <div class="panel-body">
+                  <p>if this is your first time using roleplay organizer, you can find tools on the left-hand side of the page. this tool will help you create, manage, and manipulate character sheets for tabletop games.</p>
+                  <ul>
+                    <li>version: 0.0.1</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Panel Dice Tool -->
+        <div id="panelDiceTool" class="side-tab" hidden>
+          <div class="row">
+            <div class="col-sm-10">
+              <div class="row">
+                <!-- Dice Toolkit -->
+                <div class="col-sm-12">
+                  <div class="panel">
+                    <div class="panel-heading"><h4>dice asset</h4></div>
+                    <p>Here's the base toolkit for any dungeon master or player's arsenal.</p>
+                    <div class="panel-body">
+                      <div class="pull-left">
+                        <button class="btn btn-default" id="d20">d20</button>
+                        <button class="btn btn-default" id="d12">d12</button>
+                        <button class="btn btn-default" id="d10">d10</button>
+                        <button class="btn btn-default" id="d8">d8</button>
+                        <button class="btn btn-default" id="d6">d6</button>
+                        <button class="btn btn-default" id="d4">d4</button>
+                        <button class="btn btn-default" id="percentileDice">Percentile</button>
+                        <button class="btn btn-default" id="flipCoin">Flip Coin</button>
+                        <button class="btn btn-primary" id="beatEasyCheck">Easy Check</button>
+                        <button class="btn btn-success" id="beatMediumCheck">Medium Check</button>
+                        <button class="btn btn-warning" id="beatHardCheck">Hard Check</button>
+                        <button class="btn btn-danger" id="beatImpossibleCheck">Impossible Check</button>
+                      </div>
+                      <button class="btn btn-default pull-right" id="clearResults">Clear</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Black Jack Asset -->
+                <div class="col-sm-8">
+                  <div class="panel">
+                    <div class="panel-heading"><center><h4>Black Jack Asset</h4></center></div>
+                    <p>A simple version of Black Jack, does not support splits.</p>
+                    <div class="panel-body">
+                      <div class="pull-left">
+                        <button class="btn btn-default" id="dealBlackJack">Deal</button>
+                        <button class="btn btn-default" id="hitBlackJackDealer">Hit Dealer</button>
+                        <button class="btn btn-default" id="hitBlackJackOpponent">Hit Opponent</button>
+                      </div>
+                      <button class="btn btn-default pull-right" id="clearResults">Clear</button>
+                      <button class="btn btn-default pull-right margin-right" id="calculateBlackJackWinner">Calculate Winner</button>
+                      <div class="input-group col-sm-3 pull-right margin-right">
+                        <span class="input-group-addon">BET</span>
+                        <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="blackJackBet" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Dueling Simulator -->
+                <div class="col-sm-4">
+                  <div class="panel">
+                    <div class="panel-heading"><center><h4>Duel Asset</h4></center></div>
+                    <p>It's an arena, fight to the death or die describing.</p>
+                    <div class="panel-body">
+                      <div class="pull-left">
+                        <button class="btn btn-default" id="duelGenerate">Generate Match</button>
+                      </div>
+                      <button class="btn btn-default pull-right" id="clearResults">Clear</button>
+                      <button class="btn btn-default pull-right margin-right" id="duelNextRound">Next Round</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Nothing -->
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="panel expand-vertical">
+                <table class="table">
+                  <tbody id="resultTable">
+                    <thead>
+                      <tr>
+                        <td><h4>results</h4></td>
+                      </tr>
+                    </thead>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- New Character Sheet -->
+        <div id="panelNewCharacterSheet" class="side-tab" hidden>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="panel">
+                <div class="panel-heading"><center><h4>Character Info</h4></center></div>
+                <div class="panel-body">
+                  <!-- First / Last Name -->
+                  <div class="form-group col-sm-6">
+                    <label for="formFirstName">First Name</label>
+                    <input id="formFirstName" type="text" class="form-control" placeholder="First Name">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="formLastName">Last Name</label>
+                    <input id="formLastName" type="text" class="form-control" placeholder="Last Name">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="formAlignment">Alignment</label>
+                    <input id="formAlignment" type="text" class="form-control" placeholder="Alignment">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="formLevel">Level</label>
+                    <input id="formLevel" type="text" class="form-control" placeholder="Level">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="formDeity">Deity</label>
+                    <input id="formDeity" type="text" class="form-control" placeholder="Deity">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="formHomeland">Homeland</label>
+                    <input id="formHomeland" type="text" class="form-control" placeholder="Homeland">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="formRace">Race</label>
+                    <input id="formRace" type="text" class="form-control" placeholder="Race">
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <label for="formSize">Size</label>
+                    <input id="formSize" type="text" class="form-control" placeholder="Size">
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <label for="formAge">Age</label>
+                    <input id="formAge" type="text" class="form-control" placeholder="Age">
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <label for="formHeight">Height</label>
+                    <input id="formHeight" type="text" class="form-control" placeholder="Height">
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <label for="formWeight">Weight</label>
+                    <input id="formWeight" type="text" class="form-control" placeholder="Weight">
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <label for="formHair">Hair</label>
+                    <input id="formHair" type="text" class="form-control " placeholder="Hair">
+                  </div>
+                  <div class="form-group col-sm-3">
+                    <label for="formEyes">Eyes</label>
+                    <input id="formEyes" type="text" class="form-control" placeholder="Eyes">
+                  </div>
+                  <!-- -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Nothing -->
+      </div>
+    </div>
+  </div>
+  <script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');</script>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

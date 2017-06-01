@@ -1,0 +1,18 @@
+{
+  "name": "roleplayorganizer",
+  "version": "0.0.1",
+  "description": "Organize character sheets and more.",
+  "main": "app.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "electron": "^1.6.1",
+    "jquery": "^3.2.1",
+    "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Stuyk",
+  "license": "ISC"
+}
