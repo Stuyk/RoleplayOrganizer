@@ -139,67 +139,379 @@
         <!-- New Character Sheet -->
         <div id="panelNewCharacterSheet" class="side-tab" hidden>
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
               <div class="panel">
-                <div class="panel-heading"><center><h4>Character Info</h4></center></div>
+                <div class="panel-heading">
+                  <div class="col-sm-4"></div>
+                  <div class="col-sm-4">
+                    <h4 class="margin-bottom">new character sheet</h4>
+                  </div>
+                  <div class="col-sm-4">
+                    <button class="btn btn-default btn-sm pull-right" id="saveSheet">Save Sheet</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Basic Information -->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="panel">
+                <div class="panel-heading"><center><h4>Basic Information</h4></center></div>
                 <div class="panel-body">
                   <!-- First / Last Name -->
-                  <div class="form-group col-sm-6">
+                  <div class="form-group form-group-sm col-sm-6">
                     <label for="formFirstName">First Name</label>
                     <input id="formFirstName" type="text" class="form-control" placeholder="First Name">
                   </div>
-                  <div class="form-group col-sm-6">
+                  <div class="form-group form-group-sm col-sm-6">
                     <label for="formLastName">Last Name</label>
                     <input id="formLastName" type="text" class="form-control" placeholder="Last Name">
                   </div>
-                  <div class="form-group col-sm-6">
+                  <div class="form-group form-group-sm col-sm-6">
                     <label for="formAlignment">Alignment</label>
                     <input id="formAlignment" type="text" class="form-control" placeholder="Alignment">
                   </div>
-                  <div class="form-group col-sm-6">
+                  <div class="form-group form-group-sm col-sm-6">
                     <label for="formLevel">Level</label>
                     <input id="formLevel" type="text" class="form-control" placeholder="Level">
                   </div>
-                  <div class="form-group col-sm-6">
+                  <div class="form-group form-group-sm col-sm-6">
                     <label for="formDeity">Deity</label>
                     <input id="formDeity" type="text" class="form-control" placeholder="Deity">
                   </div>
-                  <div class="form-group col-sm-6">
+                  <div class="form-group form-group-sm col-sm-6">
                     <label for="formHomeland">Homeland</label>
                     <input id="formHomeland" type="text" class="form-control" placeholder="Homeland">
                   </div>
-                  <div class="form-group col-sm-6">
+                  <div class="form-group form-group-sm col-sm-6">
                     <label for="formRace">Race</label>
                     <input id="formRace" type="text" class="form-control" placeholder="Race">
                   </div>
-                  <div class="form-group col-sm-3">
+                  <div class="form-group form-group-sm col-sm-3">
                     <label for="formSize">Size</label>
                     <input id="formSize" type="text" class="form-control" placeholder="Size">
                   </div>
-                  <div class="form-group col-sm-3">
+                  <div class="form-group form-group-sm col-sm-3">
                     <label for="formAge">Age</label>
                     <input id="formAge" type="text" class="form-control" placeholder="Age">
                   </div>
-                  <div class="form-group col-sm-3">
+                  <div class="form-group form-group-sm col-sm-3">
                     <label for="formHeight">Height</label>
                     <input id="formHeight" type="text" class="form-control" placeholder="Height">
                   </div>
-                  <div class="form-group col-sm-3">
+                  <div class="form-group form-group-sm col-sm-3">
                     <label for="formWeight">Weight</label>
                     <input id="formWeight" type="text" class="form-control" placeholder="Weight">
                   </div>
-                  <div class="form-group col-sm-3">
+                  <div class="form-group form-group-sm col-sm-3">
                     <label for="formHair">Hair</label>
                     <input id="formHair" type="text" class="form-control " placeholder="Hair">
                   </div>
-                  <div class="form-group col-sm-3">
+                  <div class="form-group form-group-sm col-sm-3">
                     <label for="formEyes">Eyes</label>
                     <input id="formEyes" type="text" class="form-control" placeholder="Eyes">
                   </div>
                   <!-- -->
-                  <button class="btn btn-default" id="saveSheet">Save Sheet</button>
                 </div>
               </div>
+          <!-- Ability Scores -->
+              <div class="panel">
+                <div class="panel-heading"><center><h4>Ability Scores</h4></center></div>
+                <p>Low Fantasy: 10 Points / Standard Fantasy: 15 / High Fantasy: 20 / Epic Fantasy: 25</p>
+                <p>Classic: Roll 4d6, remove lowest number. Add together. Do this 6 times. Those are your ability scores.</p>
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>Score</td>
+                      <td>7</td>
+                      <td>8</td>
+                      <td>9</td>
+                      <td>10</td>
+                      <td>11</td>
+                      <td>12</td>
+                      <td>13</td>
+                      <td>14</td>
+                      <td>15</td>
+                      <td>16</td>
+                      <td>17</td>
+                      <td>18</td>
+                    </tr>
+                    <tr>
+                      <td>Points (Mod)</td>
+                      <td>-4</td>
+                      <td>-2</td>
+                      <td>-1</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>3</td>
+                      <td>5</td>
+                      <td>7</td>
+                      <td>10</td>
+                      <td>13</td>
+                      <td>17</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="panel-body">
+                  <div class="col-sm-3">
+                    <h5 class="pull-left">score</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <h5 class="pull-left">modifier</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <h5 class="pull-left">tmp adjust</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <h5 class="pull-left">tmp mod</h5>
+                  </div>
+                  <!-- Strength -->
+                  <div class="col-sm-12">
+                    <h5 class="pull-left">strength</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formStrAs" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formStrMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formStrTempAdj" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formStrTempMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <!-- Dexterity -->
+                  <div class="col-sm-12">
+                    <h5 class="pull-left">dexterity</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formDexAs" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formDexMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formDexTempAdj" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formDexTempMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <!-- Constitution -->
+                  <div class="col-sm-12">
+                    <h5 class="pull-left">constitution</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formConAs" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formConMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formConTempAdj" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formConTempMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <!-- Intelligence -->
+                  <div class="col-sm-12">
+                    <h5 class="pull-left">intelligence</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formIntAs" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formIntMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formIntTempAdj" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formIntTempMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <!-- Wisdom -->
+                  <div class="col-sm-12">
+                    <h5 class="pull-left">wisdom</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formWisAs" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formWisMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formWisTempAdj" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formWisTempMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <!-- Charisma -->
+                  <div class="col-sm-12">
+                    <h5 class="pull-left">charisma</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formChaAs" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formChaMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formChaTempAdj" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-sm">
+                      <input id="formChaTempMod" class="form-control" type="number" placeholder="0">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Hitpoints -->
+              <div class="panel">
+                <div class="panel-heading"><center><h4>Hitpoints / Initiative</h4></center></div>
+                <p>Every class has different starting Health Points.</p>
+                <p>Total Initiative is (Dex Modifier + Any Miscs)</p>
+                <div class="panel-body">
+                  <div class="form-group form-group-sm col-sm-3">
+                    <label for="formHPTotal">Total HP</label>
+                    <input id="formHPTotal" type="number" class="form-control" placeholder="Total HP">
+                  </div>
+                  <div class="form-group form-group-sm col-sm-3">
+                    <label for="formHPCurrent">Current HP / Damage / Wounds</label>
+                    <input id="formHPCurrent" type="text" class="form-control" placeholder="Current HP / Damage">
+                  </div>
+                  <div class="form-group form-group-sm col-sm-3">
+                    <label for="formHPNonLethal">Non-Lethal Damage</label>
+                    <input id="formHPNonLethal" type="text" class="form-control" placeholder="Non-Lethal Damage">
+                  </div>
+                  <div class="form-group form-group-sm col-sm-3">
+                    <label for="formInitiative">Total Initiative</label>
+                    <input id="formInitiative" type="number" class="form-control" placeholder="0">
+                  </div>
+                </div>
+              </div>
+              <!-- Speed -->
+              <div class="panel">
+                <div class="panel-heading"><center><h4>Speed</h4></center></div>
+                <p>Base speed, often calculated by feet. Your base movement by squares is (FT. / 5).</p>
+                <div class="panel-body">
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formSpeedBase">Base Speed</label>
+                    <input id="formSpeedBase" type="number" class="form-control" placeholder="0 Ft. 0 Sq.">
+                  </div>
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formSpeedArmor">Base Speed with Armor</label>
+                    <input id="formSpeedArmor" type="text" class="form-control" placeholder="0 Ft. 0 Sq.">
+                  </div>
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formSpeedFly">Fly</label>
+                    <input id="formSpeedFly" type="text" class="form-control" placeholder="0 Ft. 0 Sq.">
+                  </div>
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formSpeedSwim">Swim</label>
+                    <input id="formSpeedSwim" type="number" class="form-control" placeholder="0 Ft. 0 Sq.">
+                  </div>
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formSpeedClimb">Climb</label>
+                    <input id="formSpeedClimb" type="number" class="form-control" placeholder="0 Ft. 0 Sq.">
+                  </div>
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formSpeedBurrow">Burrow</label>
+                    <input id="formSpeedBurrow" type="number" class="form-control" placeholder="0 Ft. 0 Sq.">
+                  </div>
+                </div>
+              </div>
+              <!-- Armor Class -->
+              <div class="panel">
+                <div class="panel-heading"><center><h4>Armor Class</h4></center></div>
+                <div class="panel-body">
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formArmorClass">Armor Class</label>
+                    <input id="formArmorClass" type="number" class="form-control" placeholder="0">
+                    <br />
+                    <sup>(10 + Armor Bonus + Shield Bonus + Dex Mod + Size Mod + Natural Armor + Deflect Mod + Misc Mod)</sup>
+                  </div>
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formArmorTouch">Touch</label>
+                    <input id="formArmorTouch" type="number" class="form-control" placeholder="0">
+                    <br />
+                    <sup>(10 + Dex Mod + Size Mod + Deflect Mod + Misc Mod)</sup>
+                  </div>
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formArmorFlatFoot">Flat-Foot</label>
+                    <input id="formArmorFlatFoot" type="number" class="form-control" placeholder="0">
+                    <br />
+                    <sup>(10 + Armor Bonus + Shield Bonus + Size Mod + Natural Armor + Deflect Mod + Misc Mod)</sup>
+                  </div>
+                </div>
+              </div>
+              <!-- Saving Throws -->
+              <div class="panel">
+                <div class="panel-heading"><center><h4>Saving Throws</h4></center></div>
+                <p>The Base Save is unique to each class, be sure to look up your class.</p>
+                <div class="panel-body">
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formFortitude">Fortitude <sup>(Base Save + Con Mod + Magic Mod + Misc Mod + Temp Mod)</sup></label>
+                    <input id="formFortitude" type="number" class="form-control" placeholder="">
+                  </div>
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formReflex">Reflex <sup>(Base Save + Dex Mod + Magic Mod + Misc Mod + Temp Mod)</sup></label>
+                    <input id="formReflex" type="number" class="form-control" placeholder="">
+                  </div>
+                  <div class="form-group form-group-sm col-sm-4">
+                    <label for="formWill">Will <sup>(Base Save + Wis Mod + Magic Mod + Misc Mod + Temp Mod)</sup></label>
+                    <input id="formWill" type="number" class="form-control" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <!-- end -->
             </div>
           </div>
         </div>

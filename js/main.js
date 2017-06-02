@@ -2,19 +2,22 @@ const db = require('./js/database');
 /** Database Helpers **/
 function getAllCharacters() {
   db.getAllCharacters(function(characters) {
-    console.log("length: " + characters.length);
+    console.log(`Found Characters, Amount: ${characters.length}`);
     for (var i = 0; i < characters.length; i++) {
-      var first = characters[i].FirstName;
-      var last = characters[i].LastName;
-      var race = characters[i].Race;
-      var id = characters[i]._id;
-      $('#characterLoadingPanel').append(`<button type="button" class="btn btn-default col-sm-12 margin-top" id="${id}">${first} ${last} - ${race} - ${id}</button>`);
+      $('#characterLoadingPanel').append(`
+      <button type="button"
+      class="btn btn-default col-sm-12 margin-top" id="${characters[i]._id}" onClick="loadCharacter('${characters[i]._id}')">
+      <span class="pull-left">${characters[i].FirstName} ${characters[i].LastName}</span>
+      <span class="pull-right">${characters[i].Level}</span>
+      </button>`);
     }
+
   });
 }
 
 function getCharacterSheetValues() {
   var values = [];
+  // First Panel - Character Information
   values.push($("#formFirstName").val()) // 0
   values.push($("#formLastName").val())
   values.push($("#formAlignment").val())
@@ -28,6 +31,40 @@ function getCharacterSheetValues() {
   values.push($("#formWeight").val())
   values.push($("#formHair").val())
   values.push($("#formEyes").val()) //12
+  // Second Panel - Ability Scores
+  // STR - 13 / Dex - 14 / Con - 15 / Int - 16 / Wis - 17 / Cha - 18
+  var builder = ["Str", "Dex", "Con", "Int", "Wis", "Cha"];
+  for (i = 0; i < builder.length; i++) {
+    var arr = [];
+    arr.push($(`#form${builder[i]}As`).val())
+    arr.push($(`#form${builder[i]}Mod`).val())
+    arr.push($(`#form${builder[i]}TempAdj`).val())
+    arr.push($(`#form${builder[i]}TempMod`).val())
+    values.push(arr);
+  }
+  // Health 19
+  var builder = ["Total", "Current", "NonLethal"];
+  var arr = [];
+  for (i = 0; i < builder.length; i++) {
+    arr.push($(`#formHP${builder[i]}`).val());
+  }
+  values.push(arr);
+  // Speed 20
+  var builder = ["Base", "Armor", "Fly", "Swim", "Climb", "Burrow"];
+  var arr = [];
+  for (i = 0; i < builder.length; i++) {
+    arr.push($(`#formSpeed${builder[i]}`).val());
+  }
+  values.push(arr);
+  // Initiative 21
+  values.push($("#formInitiative").val());
+  // Armor Class - 22
+  var builder = ["Class", "Touch", "FlatFoot"];
+  var arr = [];
+  for (i = 0; i < builder.length; i++) {
+    arr.push($(`#formArmor${builder[i]}`).val());
+  }
+  values.push(arr);
   return values;
 }
 
@@ -48,8 +85,25 @@ function saveCharacter(values) {
     db.setWeight(id, values[10]);
     db.setHair(id, values[11]);
     db.setEyes(id, values[12]);
+    db.setStrength(id, values[13]);
+    db.setDexterity(id, values[14]);
+    db.setConstitution(id, values[15]);
+    db.setIntelligence(id, values[16]);
+    db.setWisdom(id, values[17]);
+    db.setCharisma(id, values[18]);
+    db.setHealth(id, values[19]);
+    db.setSpeed(id, values[20]);
+    db.setInitiative(id, values[21]);
+    db.setArmorClass(id, values[22]);
   });
 }
+
+/** Load Character Buttons **/
+function loadCharacter(id) {
+  playButtonClick();
+  console.log(id);
+}
+
 
 /** Nav Handler */
 $("button").click(function() {

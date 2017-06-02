@@ -61,9 +61,84 @@ module.exports = {
     characterDB.update({ _id: `${target}` }, {$set: { Weight: `${value}` }}, function(err, numReplaced) {});
   },
   setHair: function(target, value) {
-    characterDB.update({ FirstName: `${target}` }, {$set: { Hair: `${value}` }}, function(err, numReplaced) {});
+    characterDB.update({ _id: `${target}` }, {$set: { Hair: `${value}` }}, function(err, numReplaced) {});
   },
   setEyes: function(target, value) {
-    characterDB.update({ FirstName: `${target}` }, {$set: { Eyes: `${value}` }}, function(err, numReplaced) {});
-  }
+    characterDB.update({ _id: `${target}` }, {$set: { Eyes: `${value}` }}, function(err, numReplaced) {});
+  },
+  setStrength: function(target, values) {
+    characterDB.update({ _id: `${target}` }, {$set: {
+      StrAs: `${values[0]}`,
+      StrMod: `${values[1]}`,
+      StrTempAdj: `${values[2]}`,
+      StrTempMod: `${values[3]}`
+      }}, function(err, numReplaced) {});
+  },
+  setDexterity: function(target, values) {
+    characterDB.update({ _id: `${target}` }, {$set: {
+      DexAs: `${values[0]}`,
+      DexMod: `${values[1]}`,
+      DexTempAdj: `${values[2]}`,
+      DexTempMod: `${values[3]}`
+      }}, function(err, numReplaced) {});
+  },
+  setConstitution: function(target, values) {
+    characterDB.update({ _id: `${target}` }, {$set: {
+      ConAs: `${values[0]}`,
+      ConMod: `${values[1]}`,
+      ConTempAdj: `${values[2]}`,
+      ConTempMod: `${values[3]}`
+      }}, function(err, numReplaced) {});
+  },
+  setIntelligence: function(target, values) {
+    characterDB.update({ _id: `${target}` }, {$set: {
+      IntAs: `${values[0]}`,
+      IntMod: `${values[1]}`,
+      IntTempAdj: `${values[2]}`,
+      IntTempMod: `${values[3]}`
+      }}, function(err, numReplaced) {});
+  },
+  setWisdom: function(target, values) {
+    characterDB.update({ _id: `${target}` }, {$set: {
+      WisAs: `${values[0]}`,
+      WisMod: `${values[1]}`,
+      WisTempAdj: `${values[2]}`,
+      WisTempMod: `${values[3]}`
+      }}, function(err, numReplaced) {});
+  },
+  setCharisma: function(target, values) {
+    characterDB.update({ _id: `${target}` }, {$set: {
+      ChaAs: `${values[0]}`,
+      ChaMod: `${values[1]}`,
+      ChaTempAdj: `${values[2]}`,
+      ChaTempMod: `${values[3]}`
+      }}, function(err, numReplaced) {});
+  },
+  setHealth: function(target, values) {
+    characterDB.update({ _id: `${target}` }, {$set: {
+      HPTotal: `${values[0]}`,
+      HPCurrent: `${values[1]}`,
+      HPNonLethal: `${values[2]}`
+      }}, function(err, numReplaced) {});
+  },
+  setSpeed: function(target, values) {
+    characterDB.update({ _id: `${target}` }, {$set: {
+      SpeedBase: `${values[0]}`,
+      SpeedArmor: `${values[1]}`,
+      SpeedFly: `${values[2]}`,
+      SpeedSwim: `${values[3]}`,
+      SpeedClimb: `${values[4]}`,
+      SpeedBurrow: `${values[5]}`
+      }}, function(err, numReplaced) {});
+  },
+  setInitiative: function(target, value) {
+    characterDB.update({ _id: `${target}` }, {$set: { Initiative: `${value}` }}, function(err, numReplaced) {});
+  },
+  setArmorClass: function(target, values) {
+    characterDB.update({ _id: `${target}` }, {$set: {
+      ArmorClass: `${values[0]}`,
+      ArmorTouch: `${values[1]}`,
+      ArmorFlatFoot: `${values[2]}`
+      }}, function(err, numReplaced) {});
+  },
 }

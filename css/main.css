@@ -1,6 +1,14 @@
 html {
-  min-height: 100%;
+  height: 100%;
   position: relative;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.panel-body {
+  height: 100%;
 }
 
 body {
@@ -28,6 +36,19 @@ h1, h2, h3, h4, h5, h6 {
 
 button:focus {
   outline: 0 !important;
+}
+
+.col-height {
+  display: table-cell;
+  float: none;
+  height: 100%;
+}
+
+.row-height {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
 }
 
 .navbar-fixed-top {
@@ -61,6 +82,8 @@ button:focus {
   background-color: #20201d;
   height: 100vh;
   padding-top: 15px;
+  overflow-y: scroll;
+  padding-bottom: 60px;
 }
 
 .margin-right {
