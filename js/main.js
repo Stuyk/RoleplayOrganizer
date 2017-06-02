@@ -1,3 +1,56 @@
+const db = require('./js/database');
+/** Database Helpers **/
+function getAllCharacters() {
+  db.getAllCharacters(function(characters) {
+    console.log("length: " + characters.length);
+    for (var i = 0; i < characters.length; i++) {
+      var first = characters[i].FirstName;
+      var last = characters[i].LastName;
+      var race = characters[i].Race;
+      var id = characters[i]._id;
+      $('#characterLoadingPanel').append(`<button type="button" class="btn btn-default col-sm-12 margin-top" id="${id}">${first} ${last} - ${race} - ${id}</button>`);
+    }
+  });
+}
+
+function getCharacterSheetValues() {
+  var values = [];
+  values.push($("#formFirstName").val()) // 0
+  values.push($("#formLastName").val())
+  values.push($("#formAlignment").val())
+  values.push($("#formLevel").val())
+  values.push($("#formDeity").val())
+  values.push($("#formHomeland").val())
+  values.push($("#formRace").val()) // 6
+  values.push($("#formSize").val())
+  values.push($("#formAge").val())
+  values.push($("#formHeight").val())
+  values.push($("#formWeight").val())
+  values.push($("#formHair").val())
+  values.push($("#formEyes").val()) //12
+  return values;
+}
+
+function saveCharacter(values) {
+  // First, Last
+  db.addCharacter(values[0], values[1]);
+  db.getCharacterID(values[0], values[1], function(id) {
+    db.setFirstName(id, values[0]);
+    db.setLastName(id, values[1]);
+    db.setAlignment(id, values[2]);
+    db.setLevel(id, values[3]);
+    db.setDeity(id, values[4]);
+    db.setHomeland(id, values[5]);
+    db.setRace(id, values[6]);
+    db.setSize(id, values[7]);
+    db.setAge(id, values[8]);
+    db.setHeight(id, values[9]);
+    db.setWeight(id, values[10]);
+    db.setHair(id, values[11]);
+    db.setEyes(id, values[12]);
+  });
+}
+
 /** Nav Handler */
 $("button").click(function() {
   playButtonClick();
@@ -11,6 +64,15 @@ $("button").click(function() {
       break;
     case "showPanelNewCharacterSheet":
       showTab("panelNewCharacterSheet");
+      break;
+    case "showPanelLoadCharacter":
+      $('#characterLoadingPanel').empty();
+      getAllCharacters();
+      showTab("panelLoadCharacter");
+      break;
+    // New Character Sheet Panel
+    case "saveSheet":
+      saveCharacter(getCharacterSheetValues());
       break;
     // Dice Window
     case "d20":
